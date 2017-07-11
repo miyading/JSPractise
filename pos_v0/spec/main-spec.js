@@ -1,9 +1,8 @@
-describe('pos', function () {
+describe('pos', function() {
     var inputs;
 
-    beforeEach(function () {
-        inputs = [
-            {
+    beforeEach(function() {
+        inputs = [{
                 barcode: 'ITEM000000',
                 name: '可口可乐',
                 unit: '瓶',
@@ -27,7 +26,7 @@ describe('pos', function () {
         ];
     });
 
-    it('should print correct text', function () {
+    it('should print correct text', function() {
 
         spyOn(console, 'log');
 
@@ -42,6 +41,6 @@ describe('pos', function () {
             '总计：23.00(元)\n' +
             '**********************';
 
-          expect(console.log).toHaveBeenCalledWith(expectText);
+        expect(console.log).toHaveBeenCalledWith(expectText);
     });
 });
