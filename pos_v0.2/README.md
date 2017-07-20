@@ -28,6 +28,47 @@ POS收银机 版本：v0.2
     'ITEM000004'
 ]
 
+function loadAllItems() {
+    return [
+        {
+            barcode: 'ITEM000000',
+            name: '可口可乐',
+            unit: '瓶',
+            price: 3.00
+        },
+        {
+            barcode: 'ITEM000001',
+            name: '雪碧',
+            unit: '瓶',
+            price: 3.00
+        },
+        {
+            barcode: 'ITEM000002',
+            name: '苹果',
+            unit: '斤',
+            price: 5.50
+        },
+        {
+            barcode: 'ITEM000003',
+            name: '荔枝',
+            unit: '斤',
+            price: 15.00
+        },
+        {
+            barcode: 'ITEM000004',
+            name: '电池',
+            unit: '个',
+            price: 2.00
+        },
+        {
+            barcode: 'ITEM000005',
+            name: '方便面',
+            unit: '袋',
+            price: 4.50
+        }
+    ];
+}
+
 ```
 
 清单内容（样例）：
@@ -52,3 +93,39 @@ POS收银机 版本：v0.2
 
 
 1. 学会遍历查找内容
+
+
+Tasking:
+#0 去重 (5min) 8:06
+输入：
+barcodeArr
+输出：
+uniqBarcodeCountArr: [{
+  barcode: '',
+  count: 5
+  }]
+
+#1 计算出每种商品的数量及小计（10min）8：03
+输入：
+uniqBarcodeCountArr, loadAllItems
+输出：
+itemsDetailInfoArr: [{
+  barcode: 'ITEM000000',
+  name: '可口可乐',
+  unit: '瓶',
+  price: 3.00,
+  count: 2，
+  sum: 6.00
+  }]
+
+#2 计算所有商品的总计(5min)
+输入：
+itemsDetailInfoArr
+输出:
+total: number
+
+#3 打印小票(8min)
+输入：
+itemsDetailInfoArr, total
+输出：
+result:String

@@ -1,6 +1,5 @@
 function loadAllItems() {
-    return [
-        {
+    return [{
             barcode: 'ITEM000000',
             name: '可口可乐',
             unit: '瓶',
@@ -37,6 +36,4 @@ function loadAllItems() {
             price: 4.50
         }
     ];
-}
-
-
+};

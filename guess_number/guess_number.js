@@ -1,28 +1,34 @@
 const readlineSync = require('readline-sync');
 
-function randNumStr(min, max, num) {
-    let arr = [],
-        t;
+const guessNumberObj = {
+    randNumStr: (min, max, num) => {
+        let arr = [],
+            t;
 
-    function fn(i) {
-        for (i; i < num; i++) {
-            t = parseInt(Math.random() * (max - min + 1) + min);
-            for (var k in arr) {
-                if (arr[k] == t) {
-                    fn(i);
-                    break;
+        function fn(i) {
+            for (i; i < num; i++) {
+                t = parseInt(Math.random() * (max - min + 1) + min);
+                for (var k in arr) {
+                    if (arr[k] == t) {
+                        fn(i);
+                        break;
+                    }
                 }
+                arr[i] = t;
             }
-            arr[i] = t;
         }
+        fn(0);
+        return arr.join('')
+    },
+    getInputStr: () => {
+        const inputStr = readlineSync.question(`System generate random number is ${systemRandomNumStr}\nPlease input your guessed number: `);
+        return inputStr;
     }
-    fn(0);
-    return arr.join('')
 }
 
 function guessNumber() {
-    const systemRandomNumStr = this.randNumStr(1, 9, 4);
-    const inputGuessedNumStr = readlineSync.question(`System generate random number is ${systemRandomNumStr}\nPlease input your guessed number: `);
+    const systemRandomNumStr = guessNumberObj.randNumStr(1, 9, 4);
+    const inputGuessedNumStr = guessNumberObj.getInputStr();
     let totalCount = 0,
         countA = 0,
         countB = 0;
@@ -39,6 +45,7 @@ function guessNumber() {
     }
     return `${countA}A${countB}B`;
 }
+// console.log(guessNumber());
 
-module.exports.randNumStr = randNumStr;
+module.exports.guessNumberObj = guessNumberObj;
 module.exports.guessNumber = guessNumber;

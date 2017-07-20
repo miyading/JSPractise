@@ -1,8 +1,8 @@
-describe('pos', function () {
+describe('pos', function() {
     var allItems;
     var inputs;
 
-    beforeEach(function () {
+    beforeEach(function() {
         allItems = loadAllItems();
         inputs = [
             'ITEM000000',
@@ -16,7 +16,7 @@ describe('pos', function () {
         ];
     });
 
-    it('should print correct text', function () {
+    it('should print correct text', function() {
 
         spyOn(console, 'log');
 
@@ -31,6 +31,6 @@ describe('pos', function () {
             '总计：23.00(元)\n' +
             '**********************';
 
-          expect(console.log).toHaveBeenCalledWith(expectText);
+        expect(console.log).toHaveBeenCalledWith(expectText);
     });
 });
